@@ -1,0 +1,28 @@
+<body>
+<h1>Edit Inventory Items</h1>
+<div class="row mb-3">
+  <div class="col-6 col-md-1 themed-grid-col">Name:</div>
+  <div class="col-6 col-md-4 themed-grid-col">
+    <div *ngIf="currentIceCream">
+      <input type="text" [(ngModel)]="currentIceCream.name" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></div>
+    </div>
+  <div class="col-6 col-md-7 themed-grid-col"></div>
+</div>
+<div class="row mb-3">
+  <div class="col-6 col-md-1 themed-grid-col">Scoops Left:</div>
+  <div class="col-6 col-md-4 themed-grid-col">
+  <div *ngIf="currentIceCream">
+    <input type="text" [(ngModel)]="currentIceCream.scoopCount" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></div>
+  </div>
+  <div class="col-6 col-md-7 themed-grid-col"></div>
+</div>
+<div class="row mb-3">
+  <div class="col-6 col-md-1 themed-grid-col">Price:</div>
+  <div class="col-6 col-md-4 themed-grid-col">
+  <div *ngIf="currentIceCream">
+    <input type="text" [(ngModel)]="currentIceCream.price" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"></div>
+  </div>
+  <div class="col-6 col-md-7 themed-grid-col"></div>
+</div>
+<button class="go-back-button" (click)="goBack()">Go Back</button>
+</body>

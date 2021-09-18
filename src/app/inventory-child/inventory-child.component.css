@@ -1,0 +1,22 @@
+.float-container {
+  padding: 20px;
+}
+
+.float-child {
+  width: 100px;
+  float: left;
+  padding: 5px;
+}
+
+.edit-button:link, .edit-button:visited {
+  background-color: #555555;
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.edit-button:hover, .edit-button:active {
+  background-color: cadetblue;
+}

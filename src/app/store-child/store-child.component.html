@@ -1,0 +1,6 @@
+<div class="float-container" *ngIf="iceCreamItem">
+  <div class="ice-cream-color" [style.background-color]="iceCreamItem.colorName"></div>
+  <div class="float-child"> {{ iceCreamItem.name }} </div>
+  <div class="float-child"> {{ iceCreamItem.price }} </div>
+  <button (click)="addToCart();" type="button" class="add-to-cart-button">Add to Cart</button>
+</div>

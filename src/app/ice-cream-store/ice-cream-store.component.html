@@ -1,0 +1,16 @@
+<div class="whole-store-page">
+  <h1>Ice Cream Orders</h1>
+  <div class="store-children">
+    <app-store-child *ngFor="let iceCream of iceCreams" [iceCreamItem]="iceCream" (addToCartEvent)="addToCart($event)"></app-store-child>
+  </div>
+  <div class="shopping-cart">
+    <h2>Shopping Cart</h2>
+    <div class="float-container">
+      <div class="float-child"> Flavor </div>
+      <div class="float-child"> Count </div>
+      <div class="float-child"> Subtotal </div>
+    </div>
+    <br>
+    <app-cart-child *ngFor="let c of cartKids" [cartKid]="c"></app-cart-child>
+  </div>
+</div>

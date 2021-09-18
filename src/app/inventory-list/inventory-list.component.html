@@ -1,0 +1,5 @@
+<body>
+  <h1 class="inventory-list">Inventory List</h1>
+  <app-inventory-child *ngFor="let iceCream of iceCreams" [iceCreamItem]="iceCream"></app-inventory-child>
+  <button (click)="buttonClick();" type="button" class="add-new-button">Add New</button>
+</body>
