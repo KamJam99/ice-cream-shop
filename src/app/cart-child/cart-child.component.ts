@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {IceCreamItem} from "../models/ice-cream-item";
 import {CartItem} from "../models/cart-item";
 
@@ -10,6 +10,7 @@ import {CartItem} from "../models/cart-item";
 export class CartChildComponent implements OnInit {
 
   @Input() cartKid?: CartItem;
+  @Output() removeFromCartEvent = new EventEmitter<number>();
 
   constructor() { }
 
@@ -17,6 +18,6 @@ export class CartChildComponent implements OnInit {
   }
 
   removeFromCart(cartItemId?: number) {
-    // TODO:  Emit an event here.  Like we do in store-child
+    this.removeFromCartEvent.emit(cartItemId);
   }
 }

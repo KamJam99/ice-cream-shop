@@ -38,23 +38,36 @@ export class IceCreamService {
 
   addToCart(iceCreamItem: IceCreamItem): Observable<CartItem[]> {
 
-    let foundItem = this.cartItems.find(i => i.iceCreamName === iceCreamItem.name);
+    let cartList: CartItem[] = [];
+    this.getCartItems().subscribe(items => cartList = items);
+    let foundItem = cartList.find(i => i.iceCreamName === iceCreamItem.name);
 
     if (foundItem) {
       foundItem.scoopCount += 1;
-      // TODO:  Make the PUT call here.
-      // TODO:  Need to calculate sub total here.
+      foundItem.subTotal = iceCreamItem.price * foundItem.scoopCount
+      this.updateCartItem(foundItem);
     } else {
-      // let maxNum = Math.max.apply(Math, this.cartList.map(function(c) {return c.id}));
       let tempCartItem = new CartItem();
-      // tempCartItem.id = maxNum + 1;
       tempCartItem.iceCreamName = iceCreamItem.name;
       tempCartItem.scoopCount = 1;
       tempCartItem.subTotal = iceCreamItem.price;
-      this.addCartItem(tempCartItem).subscribe(item => this.cartItems.push(item));
+      this.addCartItem(tempCartItem).subscribe(item => cartList.push(item));
     }
 
-    return of(this.cartItems);
+    return of(cartList);
+  }
+
+  removeFromCart(cartId:number): Observable<CartItem> {
+    return this.removeCartItem(cartId);
+  }
+
+  removeCartItem(cartId:number): Observable<CartItem> {
+    const url = `${this.cartItemUrl}/${cartId}`;
+    return this.http.delete<CartItem>(url, this.httpOptions)
+      .pipe(
+        tap(_ => console.log("deleted CartItem with id ${cartId}")),
+        catchError(this.handleError<CartItem>("removeCartItem"))
+      );
   }
 
   addIceCreamItem(item:IceCreamItem): Observable<IceCreamItem> {
@@ -70,6 +83,14 @@ export class IceCreamService {
       .pipe(
         tap((newItem: CartItem) => console.log("added CartItem with id ${newItem.id}")),
         catchError(this.handleError<CartItem>("addCartItem"))
+      );
+  }
+
+  updateCartItem(item:CartItem): Observable<CartItem> {
+    return this.http.put<CartItem>(this.cartItemUrl, item, this.httpOptions)
+      .pipe(
+        tap(_ => console.log("updated CartItem with id ${item.id}")),
+        catchError(this.handleError<CartItem>("updateCartItem"))
       );
   }
 
