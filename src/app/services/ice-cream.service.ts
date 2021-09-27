@@ -38,9 +38,7 @@ export class IceCreamService {
 
   addToCart(iceCreamItem: IceCreamItem): Observable<CartItem[]> {
 
-    let cartList: CartItem[] = [];
-    this.getCartItems().subscribe(items => cartList = items);
-    let foundItem = cartList.find(i => i.iceCreamName === iceCreamItem.name);
+    let foundItem = this.cartItems.find(i => i.iceCreamName === iceCreamItem.name);
 
     if (foundItem) {
       foundItem.scoopCount += 1;
@@ -51,10 +49,10 @@ export class IceCreamService {
       tempCartItem.iceCreamName = iceCreamItem.name;
       tempCartItem.scoopCount = 1;
       tempCartItem.subTotal = iceCreamItem.price;
-      this.addCartItem(tempCartItem).subscribe(item => cartList.push(item));
+      this.addCartItem(tempCartItem).subscribe(item => this.cartItems.push(item));
     }
 
-    return of(cartList);
+    return of(this.cartItems);
   }
 
   removeFromCart(cartId:number): Observable<CartItem> {

@@ -13,6 +13,7 @@ import { CartChildComponent } from './cart-child/cart-child.component';
 import { HttpClientModule } from "@angular/common/http";
 import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { InMemoryDataService} from "./services/in-memory-data.service";
+import { HomePageComponent } from './home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { InMemoryDataService} from "./services/in-memory-data.service";
     InventoryChildComponent,
     StoreChildComponent,
     CartChildComponent,
+    HomePageComponent,
   ],
   imports: [
     BrowserModule,

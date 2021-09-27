@@ -1,0 +1,9 @@
+.cover-container {
+  min-height: 100%;
+  width: 100%;
+  color: white;
+  background-color: dimgrey;
+  text-align: center;
+  padding: 20px;
+}
+
