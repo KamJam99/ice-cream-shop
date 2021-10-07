@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IceCreamItem } from "../models/ice-cream-item";
-import {CartItem} from "../models/cart-item";
+import { CartItem } from "../models/cart-item";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable, of } from "rxjs";
 import { catchError, map, tap } from "rxjs/operators";
@@ -53,10 +53,6 @@ export class IceCreamService {
     }
 
     return of(this.cartItems);
-  }
-
-  removeFromCart(cartId:number): Observable<CartItem> {
-    return this.removeCartItem(cartId);
   }
 
   removeCartItem(cartId:number): Observable<CartItem> {

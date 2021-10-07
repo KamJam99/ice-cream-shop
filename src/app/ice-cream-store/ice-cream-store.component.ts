@@ -26,7 +26,7 @@ export class IceCreamStoreComponent implements OnInit {
   }
 
   removeFromCart(cartId: number): void {
-    this.iceCreamService.removeFromCart(cartId).subscribe(item => {
+    this.iceCreamService.removeCartItem(cartId).subscribe(item => {
       // this.iceCreamService.getCartItems().subscribe(items => this.cartKids = items);
       const index = this.cartKids.findIndex(item => item.id === cartId);
       if (index > -1) {
