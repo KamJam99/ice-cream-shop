@@ -5,8 +5,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Running this app
 
 1. git clone this repo
-2. Run `ng serve --open`
-3. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+2. Run `cd ice-cream-store`   
+3. Run `npm install`   
+4. Run `ng serve --open`
+5. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Running unit tests
 

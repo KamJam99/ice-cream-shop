@@ -19,15 +19,16 @@
   padding: 5px;
 }
 
-.add-to-cart-button {
-  background-color: white;
-  color: black;
-  border: 2px solid #555555;
-  border-radius: 8px;
-  padding: 8px;
-}
-
-.add-to-cart-button:hover {
+.add-to-cart-button, .add-to-cart-button:visited {
   background-color: #555555;
   color: white;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 8px;
+  padding: 8px 12px;
+  border-width: 0;
+}
+
+.add-to-cart-button:hover, .add-to-cart-button:active {
+  background-color: cadetblue;
 }

@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: 'inventory-list', component: InventoryListComponent },
   { path: 'inventory-edit/:name', component: InventoryEditComponent },
   { path: 'inventory-edit', component: InventoryEditComponent },
-  { path: 'ice-cream-store', component: IceCreamStoreComponent }
+  { path: 'ice-cream-store', component: IceCreamStoreComponent },
+  { path: '', redirectTo: 'home-page', pathMatch: 'full' }
 
 ];
 @NgModule({
