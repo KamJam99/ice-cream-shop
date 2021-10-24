@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IceCreamItem } from "../models/ice-cream-item";
 import { IceCreamService } from "../services/ice-cream.service";
-import {Router} from "@angular/router";
 import {CartItem} from "../models/cart-item";
 
 @Component({
@@ -14,7 +13,7 @@ export class IceCreamStoreComponent implements OnInit {
   iceCreams: IceCreamItem[] = [];
   cartKids: CartItem[] = [];
 
-  constructor(private iceCreamService: IceCreamService, private router: Router) { }
+  constructor(private iceCreamService: IceCreamService) { }
 
   ngOnInit(): void {
     this.iceCreamService.getIceCreamItems().subscribe(items => this.iceCreams = items);
