@@ -21,14 +21,26 @@ export class InventoryEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.iceCreamService.getIceCreamItems().subscribe(items => this.iceCreams = items);
     if (this.route.snapshot.paramMap.get('name')){
-      const name = this.route.snapshot.paramMap.get('name');
-      this.currentIceCream = this.iceCreams.find(i => i.name == name);
+      const id = this.route.snapshot.paramMap.get('name');
+      if (id != undefined) {
+        this.iceCreamService.getIceCreamItemById(id).subscribe(item => this.currentIceCream = item)
+      }
     }
   }
 
   goBack(): void {
     this.location.back();
+  }
+
+  save(): void {
+    if (this.currentIceCream) {
+      if (this.currentIceCream?.id == 0) {
+        this.iceCreamService.addIceCreamItem(this.currentIceCream).subscribe(item => this.currentIceCream = item);
+      } else {
+        this.iceCreamService.updateIceCreamItem(this.currentIceCream).subscribe();
+      }
+      this.goBack()
+    }
   }
 }

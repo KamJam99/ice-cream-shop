@@ -1,5 +1,5 @@
 <div class="float-container" *ngIf = "iceCreamItem">
   <div class="float-child"> {{ iceCreamItem.name }} </div>
   <div class="float-child"> {{ iceCreamItem.scoopCount }} </div>
-  <a class="edit-button" [routerLink]="['/inventory-edit', iceCreamItem.name]">Edit</a>
+  <a class="edit-button" [routerLink]="['/inventory-edit', iceCreamItem.id]">Edit</a>
 </div>

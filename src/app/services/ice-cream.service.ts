@@ -28,6 +28,30 @@ export class IceCreamService {
       );
   }
 
+  getIceCreamItemById(id: string): Observable<IceCreamItem> {
+    return this.http.get<IceCreamItem>(this.iceCreamItemUrl + "/" + id)
+      .pipe(
+        tap(_ => console.log("fetched ice cream item by id")),
+        catchError(this.handleError<IceCreamItem>("getIceCreamItemById", undefined))
+      );
+  }
+
+  updateIceCreamItem(item:IceCreamItem): Observable<IceCreamItem> {
+    return this.http.put<IceCreamItem>(this.iceCreamItemUrl, item, this.httpOptions)
+      .pipe(
+        tap(_ => console.log("updated IceCreamItem with id ${item.id}")),
+        catchError(this.handleError<IceCreamItem>("updateIceCreamItem"))
+      );
+  }
+
+  addIceCreamItem(item:IceCreamItem): Observable<IceCreamItem> {
+    return this.http.post<IceCreamItem>(this.iceCreamItemUrl, item, this.httpOptions)
+      .pipe(
+        tap((newItem: IceCreamItem) => console.log("added IceCreamItem with id ${newItem.id}")),
+        catchError(this.handleError<IceCreamItem>("addIceCreamItem"))
+      );
+  }
+
   getCartItems(): Observable<CartItem[]> {
     return this.http.get<CartItem[]>(this.cartItemUrl)
       .pipe(
@@ -61,14 +85,6 @@ export class IceCreamService {
       .pipe(
         tap(_ => console.log("deleted CartItem with id ${cartId}")),
         catchError(this.handleError<CartItem>("removeCartItem"))
-      );
-  }
-
-  addIceCreamItem(item:IceCreamItem): Observable<IceCreamItem> {
-    return this.http.post<IceCreamItem>(this.iceCreamItemUrl, item, this.httpOptions)
-      .pipe(
-        tap((newItem: IceCreamItem) => console.log("added IceCreamItem with id ${newItem.id}")),
-        catchError(this.handleError<IceCreamItem>("addIceCreamItem"))
       );
   }
 
