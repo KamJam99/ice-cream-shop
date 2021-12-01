@@ -6,6 +6,7 @@
   width: 100px;
   float: left;
   padding: 5px;
+  font-size: large;
 }
 
 .edit-button:link, .edit-button:visited {

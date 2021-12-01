@@ -17,6 +17,7 @@
   width: 100px;
   float: left;
   padding: 5px;
+  font-size: large;
 }
 
 .add-to-cart-button, .add-to-cart-button:visited {

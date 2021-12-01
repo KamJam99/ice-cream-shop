@@ -9,3 +9,17 @@
   float: left;
   padding: 5px;
 }
+
+.remove-button {
+  background-color: indianred;
+  color: white;
+  border-radius: 8px;
+  padding: 6px;
+  margin: 10px;
+}
+
+.remove-button:hover {
+  background-color: #555555;
+  color: white;
+  border: 2px solid #555555;
+}
